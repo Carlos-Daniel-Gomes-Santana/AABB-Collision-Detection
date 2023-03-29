@@ -25,7 +25,7 @@ function love.load()
     )
     grid = Grid(
         0, 32, 20,
-        {1, 1, 1, 1}
+        {1, 1, 1, 0.5}
     )
 end
 
