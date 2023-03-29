@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 Rectangle = require "Square"
 WINDOW_WIDTH, WINDOW_HEIGHT = 640, 640
 
@@ -11,16 +12,22 @@ love.window.setMode(
 )
 
 function love.load()
-    Rect_blue = Rectangle(
+    rectangle_blue = Rectangle(
         0, 0,
         100, 100,
         {0, 0, 1, 1}
+    )
+    rectangle_green = Rectangle(
+        WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100,
+        100, 100,
+        {0, 1, 0, 1}
     )
 end
 
 
 function love.update(dt)
-    Rect_blue:update()
+    rectangle_blue:update(1)
+    rectangle_green:update(2)
 end
 
 
@@ -36,5 +43,6 @@ function love.draw()
             WINDOW_WIDTH, 20*i
         )
     end
-    Rect_blue:render()
+    rectangle_blue:render()
+    rectangle_green:render()
 end
