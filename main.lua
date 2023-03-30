@@ -13,16 +13,22 @@ love.window.setMode(
     }
 )
 
+function love.keypressed(key)
+    if key == "q" then
+        love.event.quit()
+    end
+end
+
 function love.load()
     rectangle_blue = Rectangle(
         40, 40,
         140, 140,
-        {0, 0, 1, 0.5}
+        {0, 0, 1, 0.6}
     )
     rectangle_green = Rectangle(
         WINDOW_WIDTH - 180, WINDOW_HEIGHT - 180,
         140, 140,
-        {0, 1, 0, 0.5}
+        {0, 1, 0, 0.6}
     )
     grid = Grid(
         2, 30, 20,
