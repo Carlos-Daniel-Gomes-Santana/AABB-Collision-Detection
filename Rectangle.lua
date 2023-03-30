@@ -42,6 +42,22 @@ end
 
 function Rectangle:render()
     love.graphics.setColor(self.color)
+    love.graphics.line(
+        self.x, 40,
+        self.x + self.width, 40
+    )
+    love.graphics.line(
+        self.x, WINDOW_HEIGHT - 40,
+        self.x + self.width, WINDOW_HEIGHT - 40
+    )
+    love.graphics.line(
+        40, self.y,
+        40, self.y + self.height
+    )
+    love.graphics.line(
+        WINDOW_HEIGHT - 40, self.y,
+        WINDOW_HEIGHT - 40, self.y + self.height
+    )
     love.graphics.rectangle(
         "line",
         self.x,
