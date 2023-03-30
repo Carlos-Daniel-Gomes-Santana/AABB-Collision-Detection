@@ -1,5 +1,5 @@
 ---@diagnostic disable: lowercase-global
-local Rectangle = require "Square"
+local Rectangle = require "Rectangle"
 local Grid = require "Grid"
 WINDOW_WIDTH, WINDOW_HEIGHT = 640, 640
 
