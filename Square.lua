@@ -1,5 +1,5 @@
-Object = require "class"
-Rectangle = Object:extend()
+local Object = require "class"
+local Rectangle = Object:extend()
 
 function Rectangle:new(x, y, width, height, color)
     self.x = x
