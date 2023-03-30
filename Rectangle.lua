@@ -16,25 +16,25 @@ function Rectangle:update(type)
     local down = type == 2 and "down" or "s"
 
     if love.keyboard.isDown(left) then
-        if not (self.x == 0) then
+        if not (self.x == 40) then
             self.x = self.x - 20
         end
     end
 
     if love.keyboard.isDown(right) then
-        if not (self.x + self.width == WINDOW_WIDTH) then
+        if not (self.x + self.width == WINDOW_WIDTH - 40) then
             self.x = self.x + 20
         end
     end
 
     if love.keyboard.isDown(up) then
-        if not (self.y == 0) then
+        if not (self.y == 40) then
             self.y = self.y - 20
         end
     end
 
     if love.keyboard.isDown(down) then
-        if not (self.y + self.height == WINDOW_HEIGHT) then
+        if not (self.y + self.height == WINDOW_HEIGHT - 40) then
             self.y = self.y + 20
         end
     end

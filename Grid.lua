@@ -16,12 +16,12 @@ function Grid:render()
     love.graphics.setColor(self.color)
     for i = self.i, self.j do
         love.graphics.line(
-            self.size*i, 0,
-            self.size*i, WINDOW_HEIGHT
+            self.size*i, 40,
+            self.size*i, WINDOW_HEIGHT - 40
         )
         love.graphics.line(
-            0, self.size*i,
-            WINDOW_WIDTH, self.size*i
+            40, self.size*i,
+            WINDOW_WIDTH - 40, self.size*i
         )
     end
 end

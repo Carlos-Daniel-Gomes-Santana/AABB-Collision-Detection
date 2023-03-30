@@ -1,6 +1,7 @@
 ---@diagnostic disable: lowercase-global
 local Rectangle = require "Rectangle"
 local Grid = require "Grid"
+
 WINDOW_WIDTH, WINDOW_HEIGHT = 640, 640
 
 love.window.setMode(
@@ -14,17 +15,17 @@ love.window.setMode(
 
 function love.load()
     rectangle_blue = Rectangle(
-        0, 0,
+        40, 40,
         140, 140,
-        {0, 0, 1, 1}
+        {0, 0, 1, 0.5}
     )
     rectangle_green = Rectangle(
-        WINDOW_WIDTH - 140, WINDOW_HEIGHT - 140,
+        WINDOW_WIDTH - 180, WINDOW_HEIGHT - 180,
         140, 140,
-        {0, 1, 0, 1}
+        {0, 1, 0, 0.5}
     )
     grid = Grid(
-        0, 32, 20,
+        2, 30, 20,
         {1, 1, 1, 0.3}
     )
 end
