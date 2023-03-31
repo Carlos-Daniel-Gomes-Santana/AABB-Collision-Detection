@@ -8,10 +8,6 @@ function Grid:new(i, j, size, color)
     self.color = color
 end
 
-function Grid:update(rect_1, rect_2)
-    
-end
-
 function Grid:render()
     love.graphics.setColor(self.color)
     for i = self.i, self.j do
