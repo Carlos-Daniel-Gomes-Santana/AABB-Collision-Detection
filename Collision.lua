@@ -6,6 +6,7 @@ function Collision:new(shape_1, shape_2, debug)
     self.shape_2 = shape_2
     self.debug = debug or false
     self.status = false
+    self.font = love.graphics.newFont("font.ttf", 24)
 end
 
 function Collision:update()
@@ -31,6 +32,18 @@ function Collision:update()
 end
 
 function Collision:render()
+    if self.status then
+        local str_msg = "Collision Detected!"
+        local message = love.graphics.newText(
+            self.font, "Collision Detected!"
+        )
+        love.graphics.print(
+            str_msg,
+            self.font,
+            (WINDOW_WIDTH - message:getWidth())/2,
+            10
+        )
+    end
     if self.debug then
         love.graphics.print("Collision: "..tostring(self.status), 40, 0)
         love.graphics.print(
