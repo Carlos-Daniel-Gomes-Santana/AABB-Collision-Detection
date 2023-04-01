@@ -6,6 +6,7 @@ function Collision:new(shape_1, shape_2, debug)
     self.shape_2 = shape_2
     self.debug = debug or false
     self.status = false
+    self.point = false
     self.font = love.graphics.newFont("font.ttf", 24)
 end
 
@@ -23,19 +24,28 @@ function Collision:update()
     local x_cond = self.min_x_1 <= self.max_x_2 and self.max_x_1 >= self.min_x_2
     local y_cond = self.min_y_1 <= self.max_y_2 and self.max_y_1 >= self.min_y_2
 
+    local x_point = self.min_x_1 == self.max_x_2 or self.max_x_1 == self.min_x_2
+    local y_point = self.min_y_1 == self.max_y_2 or self.max_y_1 == self.min_y_2
+
     if x_cond and y_cond then
         self.status = true
     else
         self.status = false
     end
 
+    if x_point and y_point then
+        self.point = true
+    else
+        self.point = false
+    end
+
 end
 
 function Collision:render()
-    if self.status then
+    if self.status and not self.point then
         local str_msg = "Collision Detected!"
         local message = love.graphics.newText(
-            self.font, "Collision Detected!"
+            self.font, str_msg
         )
         love.graphics.print(
             str_msg,
@@ -44,6 +54,20 @@ function Collision:render()
             10
         )
     end
+
+    if self.point then
+        local str_msg = "Point Collision Detected!"
+        local message = love.graphics.newText(
+            self.font, str_msg
+        )
+        love.graphics.print(
+            str_msg,
+            self.font,
+            (WINDOW_WIDTH - message:getWidth())/2,
+            10
+        )
+    end
+
     if self.debug then
         love.graphics.print("Collision: "..tostring(self.status), 40, 0)
         love.graphics.print(
