@@ -42,6 +42,7 @@ function Collision:update()
 end
 
 function Collision:render()
+    love.graphics.setColor(1,1,1,1)
     if self.status and not self.point then
         local str_msg = "Collision Detected!"
         local message = love.graphics.newText(
@@ -65,6 +66,15 @@ function Collision:render()
             self.font,
             (WINDOW_WIDTH - message:getWidth())/2,
             10
+        )
+        local x_position = self.min_x_1 == self.max_x_2 and self.min_x_1 or self.max_x_1
+        local y_position = self.min_y_1 == self.max_y_2 and self.min_y_1 or self.max_y_1
+        
+        love.graphics.setPointSize(8)
+        love.graphics.setColor(1, 0, 0, 1)
+        love.graphics.points(
+            x_position,
+            y_position
         )
     end
 
