@@ -55,7 +55,7 @@ end
 
 function love.draw()
     grid:render()
-    collision:render()
     rectangle_blue:render()
     rectangle_green:render()
+    collision:render()
 end
