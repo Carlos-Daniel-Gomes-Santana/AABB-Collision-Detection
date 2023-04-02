@@ -18,6 +18,10 @@ function love.keypressed(key)
     if key == "q" then
         love.event.quit()
     end
+
+    if key == "e" then
+        collision.debug = not collision.debug
+    end
 end
 
 function love.load()
@@ -37,8 +41,7 @@ function love.load()
     )
     collision = Collision(
         rectangle_blue,
-        rectangle_green,
-        true
+        rectangle_green
     )
 end
 
