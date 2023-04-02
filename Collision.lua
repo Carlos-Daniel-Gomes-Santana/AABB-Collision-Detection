@@ -7,7 +7,7 @@ function Collision:new(shape_1, shape_2, debug)
     self.debug = debug or false
     self.status = false
     self.point = false
-    self.font = love.graphics.newFont("font.ttf", 24)
+    self.font = love.graphics.newFont("font.ttf", 19)
 end
 
 function Collision:update()
